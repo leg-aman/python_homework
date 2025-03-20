@@ -105,3 +105,21 @@ def hangman(secret_word,guessed_word):
         else:
             guessed_letter += "_"
     return guessed_letter
+
+# Task 10: Pig Latin, Another String Manipulation Exercise
+def pig_latin(sentence):
+    def convert_word(word):
+        if word[0] in 'aeiou':
+            return word + 'ay'
+        else:
+            for i in range(len(word)):
+                if word[i] in 'aeiou':  
+                    new_word = word[i:] + word[:i]  
+                    if new_word[:2] == 'qu':
+                        return new_word[2:] + 'qu' + 'ay'
+                    return new_word + 'ay'
+
+    words = sentence.split()  
+    pig_latin_words = [convert_word(word) for word in words]  
+    return ' '.join(pig_latin_words)
+
