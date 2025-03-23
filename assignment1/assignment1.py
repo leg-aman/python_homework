@@ -86,15 +86,15 @@ def student_scores(*args,**kwargs):
 # Task 8: Titleize, with String and List Operations
 def titleize(words):
     word_list = words.split()
-    book_title = []
+    book_title = ""
     for i,word in enumerate(word_list):
         if i == 0 or i == len(word_list) - 1:
-            book_title.append(word[0].capitalize() + word[1:])
-        elif word in ["a", "on", "an", "the", "of", "and", "is", "in"]:
-            book_title.append(word)
+            book_title += word[0].capitalize() + word[1:] + " "
+        elif word in "a on an the of and is in":
+            book_title += word + " "
         else:
-             book_title.append(word[0].capitalize() + word[1:])
-    return " ".join(book_title)
+             book_title += word[0].capitalize() + word[1:] + " "
+    return book_title.strip()
 
 # Task 9: Hangman, with more String Operations
 def hangman(secret_word,guessed_word):
