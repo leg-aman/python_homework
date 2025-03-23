@@ -123,12 +123,3 @@ def pig_latin(sentence):
     words = sentence.split()
     pig_latin_words = [convert_word(word) for word in words]
     return ' '.join(pig_latin_words)
-
-
-
-
-
-
-
-
-
