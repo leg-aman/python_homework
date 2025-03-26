@@ -1,4 +1,5 @@
 import csv
+import os
 import traceback
 
 # Task 2: Read a CSV File
@@ -59,3 +60,11 @@ def handle_exception(e):
         if message:
             print(f"Exception message: {message}")
         print(f"Stack trace: {stack_trace}")
+
+
+
+# Task 10: Use the os Module
+def get_this_value():
+    value = os.getenv('THISVALUE')
+    return value
+print(get_this_value())

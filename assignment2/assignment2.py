@@ -134,12 +134,28 @@ def employee_dict(args):
      if 'employee_id' in row_dict:
             del row_dict['employee_id']
             return row_dict
+     
+# Task 9: A dict of dicts, for All Employees
+def all_employees_dict():
+     all_employees = {}
+     for employee_row in employees['rows']:
+            employee_id = employee_row[0]
+            employee_data = employee_dict(employee_row)
+            all_employees[employee_id] = employee_data
+     return all_employees
+all_employees_result = all_employees_dict()
+print(all_employees_result)
 
 # Task 10: Use the os Module
 def get_this_value():
-    return os.getenv('THISVALUE')
+    value = os.getenv('THISVALUE')
+    return value
+# $env:THISVALUE="ABC" setting environment variable in windows (cmd/powershell)
 
-
+# Task 11: Creating Your Own Module
+def set_that_secret(new_secret):
+     custom_module.set_secret()
+    
 
 
 
