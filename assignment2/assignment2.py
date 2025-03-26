@@ -1,6 +1,7 @@
 import csv
 import traceback
 import os
+import custom_module
 
 # Task 2: Read a CSV File
 def read_employees ():
