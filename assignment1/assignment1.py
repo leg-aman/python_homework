@@ -9,26 +9,29 @@ def greet(name):
     return f"Hello, {name}!"
 
 # Task 3: Calculator
-def calc(arg1,arg2,arg3="multiply"):
+def calc(arg1, arg2, arg3="multiply"):
     if type(arg1) == str or type(arg2) == str:
         return "You can't multiply those values!"
-    if arg3 == "add":
-        return arg1 + arg2
-    if arg3 == "subtract":
-        return arg1 - arg2
-    if arg3 == "multiply":
-        return arg1 * arg2
-    if arg3 == "divide":
-        if arg2 == 0:
-            return "You can't divide by 0!"
-        elif type(arg1) == int and type(arg2) == int:
-            return arg1//arg2
-        else:
-            return arg1 / arg2
-    if arg3 == "modulo":
-        return arg1 % arg2
-    if arg3 == "power":
-        return arg1 ** arg2
+    
+    match arg3:
+        case "add":
+            return arg1 + arg2
+        case "subtract":
+            return arg1 - arg2
+        case "multiply":
+            return arg1 * arg2
+        case "divide":
+            if arg2 == 0:
+                return "You can't divide by 0!"
+            elif type(arg1) == int and type(arg2) == int:
+                return arg1 // arg2
+            else:
+                return arg1 / arg2
+        case "modulo":
+            return arg1 % arg2
+        case "power":
+            return arg1 ** arg2
+
     
 # Task 4: Data Type Conversion
 def data_type_conversion(arg1,arg2):
@@ -106,6 +109,7 @@ def hangman(secret_word,guessed_word):
             guessed_letter += "_"
     return guessed_letter
 
+# Task 10: Pig Latin
 def pig_latin(sentence):
     def convert_word(word):
         if word[0] in 'aeiou':
