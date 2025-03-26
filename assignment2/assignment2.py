@@ -83,58 +83,6 @@ def employee_dict(args):
      if 'employee_id' in row_dict:
             del row_dict['employee_id']
             return row_dict
-
-# Task 10: Use the os Module
-def get_this_value():
-    return os.getenv('THISVALUE')
-
-
-
-
-
-
-
-
-
-def handle_exception(e):
-        trace_back = traceback.extract_tb(e.__traceback__)
-        stack_trace = list()
-        for trace in trace_back:
-            stack_trace.append(f'File : {trace[0]} , Line : {trace[1]}, Func.Name : {trace[2]}, Message : {trace[3]}')
-        print(f"Exception type: {type(e).__name__}")
-        message = str(e)
-        if message:
-            print(f"Exception message: {message}")
-        print(f"Stack trace: {stack_trace}")
-def first_name(row_num):
-    employee_first_name_column = column_index("first_name")
-    return employees['rows'][row_num][employee_first_name_column]
-
-# Task 5: Find the Employee: a Function in a Function
-def employee_find(employee_id):
-    def employee_match(row):
-       return int(row[employee_id_column]) == employee_id
-    matches=list(filter(employee_match, employees["rows"]))
-    return matches
-
-# Task 6: Find the Employee with a Lambda
-def employee_find_2(employee_id):
-    matches = list(filter(lambda row : int(row[employee_id_column]) == employee_id , employees["rows"]))
-    return matches
-     
-# Task 7: Sort the Rows by last_name Using a Lambda
-def sort_by_last_name():
-    last_name_index = column_index("last_name")
-    employees['rows'].sort(key=lambda row: row[last_name_index])
-    return employees['rows']
-sort_by_last_name()
-
-# Task 8: Create a dict for an Employee
-def employee_dict(args):
-     row_dict = dict(zip(employees['fields'],args))
-     if 'employee_id' in row_dict:
-            del row_dict['employee_id']
-            return row_dict
      
 # Task 9: A dict of dicts, for All Employees
 def all_employees_dict():
