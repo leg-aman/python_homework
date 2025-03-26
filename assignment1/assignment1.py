@@ -9,26 +9,29 @@ def greet(name):
     return f"Hello, {name}!"
 
 # Task 3: Calculator
-def calc(arg1,arg2,arg3="multiply"):
+def calc(arg1, arg2, arg3="multiply"):
     if type(arg1) == str or type(arg2) == str:
         return "You can't multiply those values!"
-    if arg3 == "add":
-        return arg1 + arg2
-    if arg3 == "subtract":
-        return arg1 - arg2
-    if arg3 == "multiply":
-        return arg1 * arg2
-    if arg3 == "divide":
-        if arg2 == 0:
-            return "You can't divide by 0!"
-        elif type(arg1) == int and type(arg2) == int:
-            return arg1//arg2
-        else:
-            return arg1 / arg2
-    if arg3 == "modulo":
-        return arg1 % arg2
-    if arg3 == "power":
-        return arg1 ** arg2
+    
+    match arg3:
+        case "add":
+            return arg1 + arg2
+        case "subtract":
+            return arg1 - arg2
+        case "multiply":
+            return arg1 * arg2
+        case "divide":
+            if arg2 == 0:
+                return "You can't divide by 0!"
+            elif type(arg1) == int and type(arg2) == int:
+                return arg1 // arg2
+            else:
+                return arg1 / arg2
+        case "modulo":
+            return arg1 % arg2
+        case "power":
+            return arg1 ** arg2
+
     
 # Task 4: Data Type Conversion
 def data_type_conversion(arg1,arg2):
@@ -59,11 +62,11 @@ def grade(*args):
         result = sum(args)//len(args)
         if result >= 90:
             return "A"
-        elif result >= 80 or result <= 89:
+        elif result >= 80 and result <= 89:
             return "B"
-        elif result >= 70 or result <= 79:
+        elif result >= 70 and result <= 79:
             return "C"
-        elif result >= 60 or result <= 69:
+        elif result >= 60 and result <= 69:
             return "D"
         elif result <60:
             return "F"
@@ -77,11 +80,14 @@ def repeat(word, count):
 # Task 7: Student Scores, Using **kwargs
 def student_scores(*args,**kwargs):
     if "best" in args:
-        for key, value in kwargs.items():
-            if value == max(kwargs.values()):
-                return key
+        # for key, value in kwargs.items():
+        #     if value == max(kwargs.values()):
+        #         return key
+        best_student = max(kwargs, key=kwargs.get)
+        return best_student
     elif "mean" in args:
-        return sum(list(kwargs.values()))/len(kwargs.values()) 
+        mean_score = sum(kwargs.values())/len(kwargs)
+        return  mean_score
     
 # Task 8: Titleize, with String and List Operations
 def titleize(words):
@@ -106,6 +112,7 @@ def hangman(secret_word,guessed_word):
             guessed_letter += "_"
     return guessed_letter
 
+# Task 10: Pig Latin
 def pig_latin(sentence):
     def convert_word(word):
         if word[0] in 'aeiou':
