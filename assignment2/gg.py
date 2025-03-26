@@ -1,6 +1,5 @@
 import csv
 import traceback
-import os
 
 # Task 2: Read a CSV File
 def read_employees ():
@@ -37,35 +36,18 @@ def employee_find(employee_id):
     matches=list(filter(employee_match, employees["rows"]))
     return matches
 
-# Task 6: Find the Employee with a Lambda
-def employee_find_2(employee_id):
-    matches = list(filter(lambda row : int(row[employee_id_column]) == employee_id , employees["rows"]))
-    return matches
-     
 # Task 7: Sort the Rows by last_name Using a Lambda
 def sort_by_last_name():
     last_name_index = column_index("last_name")
     employees['rows'].sort(key=lambda row: row[last_name_index])
-    return employees['rows']
+    # print(employees['rows'])
 sort_by_last_name()
-
 # Task 8: Create a dict for an Employee
 def employee_dict(args):
+     sort_by_last_name()
      zipped = dict(zip(employees['fields'],args))
-     dict_without_empId = zipped.pop("employee_id")
-     return dict_without_empId
-
-# Task 10: Use the os Module
-def get_this_value():
-    return os.getenv('THISVALUE')
-
-
-
-
-
-
-
-
+     return (zipped["last_name"])
+print(employee_dict(employees['rows'][0]))
 
 def handle_exception(e):
         trace_back = traceback.extract_tb(e.__traceback__)
