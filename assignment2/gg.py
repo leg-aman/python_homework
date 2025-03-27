@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 import os
 import traceback
 
@@ -102,4 +103,11 @@ def create_minutes_set():
      minutes_union_set = minutes1_set.union(minutes2_set)
      return minutes_union_set
 minutes_set = create_minutes_set()
-print(minutes_set)
+# print(minutes_set)
+
+# Task 14: Convert to datetime
+def create_minutes_list():
+    #  minutes_list = list(minutes_set)
+    converted_list = list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), minutes_set))
+    return converted_list
+print(create_minutes_list())

@@ -2,6 +2,7 @@ import csv
 import traceback
 import os
 import custom_module
+from datetime import datetime
 
 # Task 2: Read a CSV File
 def read_employees ():
@@ -136,6 +137,12 @@ def create_minutes_set():
      return minutes_union_set
 minutes_set = create_minutes_set()
 
+# Task 14: Convert to datetime
+def create_minutes_list():
+    #  minutes_list = list(minutes_set)
+    converted_list = list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), minutes_set))
+    return converted_list
+minutes_list  = create_minutes_list()
 
 def handle_exception(e):
         trace_back = traceback.extract_tb(e.__traceback__)
