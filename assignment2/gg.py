@@ -68,3 +68,30 @@ def get_this_value():
     value = os.getenv('THISVALUE')
     return value
 print(get_this_value())
+
+# Task 12: Read minutes1.csv and minutes2.csv
+def read_minutes():
+     minutes1_header = {}
+     minutes2_header = {}
+     minutes1_list_of_rows = []
+     minutes2_list_of_rows = []
+
+     def read_minutes_csv(csv_name, dict_name, list_name):
+            try:
+                with open(f'../csv/{csv_name}.csv','r', newline='') as file:
+                    reader = csv.reader(file)
+                    header = next(reader)
+                    dict_name['fields'] = header
+                    for row in reader:
+                        list_name.append(tuple(row))
+                    dict_name['rows'] = list_name
+            except Exception as e:
+                handle_exception(e)
+            return dict_name
+     
+     v1 = read_minutes_csv('minutes1',minutes1_header,minutes1_list_of_rows)
+     v2 = read_minutes_csv('minutes2',minutes2_header,minutes2_list_of_rows)
+     return v1, v2
+v1, v2 = read_minutes()
+print(v1['rows'][1])
+print(v2["rows"][2])
