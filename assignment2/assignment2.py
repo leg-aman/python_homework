@@ -129,11 +129,12 @@ def read_minutes():
 minutes1, minutes2 =  read_minutes()
 
 # # Task 13: Create minutes_set
-# def create_minutes_set():
-     
-    
-
-
+def create_minutes_set():
+     minutes1_set = set(minutes1['rows'])
+     minutes2_set = set(minutes2['rows'])
+     minutes_union_set = minutes1_set.union(minutes2_set)
+     return minutes_union_set
+minutes_set = create_minutes_set()
 
 
 def handle_exception(e):

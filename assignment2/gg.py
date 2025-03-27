@@ -92,6 +92,14 @@ def read_minutes():
      v1 = read_minutes_csv('minutes1',minutes1_header,minutes1_list_of_rows)
      v2 = read_minutes_csv('minutes2',minutes2_header,minutes2_list_of_rows)
      return v1, v2
-v1, v2 = read_minutes()
-print(v1['rows'][1])
-print(v2["rows"][2])
+minutes1, minutes2 = read_minutes()
+print(minutes1['rows'][1])
+print(minutes2["rows"][2])
+
+def create_minutes_set():
+     minutes1_set = set(minutes1['rows'])
+     minutes2_set = set(minutes2['rows'])
+     minutes_union_set = minutes1_set.union(minutes2_set)
+     return minutes_union_set
+minutes_set = create_minutes_set()
+print(minutes_set)
