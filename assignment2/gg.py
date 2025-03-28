@@ -96,6 +96,7 @@ def read_minutes():
 minutes1, minutes2 = read_minutes()
 print(minutes1['rows'][1])
 print(minutes2["rows"][2])
+print(minutes1['fields'])
 
 def create_minutes_set():
      minutes1_set = set(minutes1['rows'])
@@ -110,4 +111,12 @@ def create_minutes_list():
     #  minutes_list = list(minutes_set)
     converted_list = list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), minutes_set))
     return converted_list
-print(create_minutes_list())
+# print(create_minutes_list())
+minutes_list = create_minutes_list()
+# Task 15: Write Out Sorted List
+def write_sorted_list():
+    minutes_list.sort(key=lambda x:x[1])
+    print(minutes_list)
+    converted_list = list(map(lambda x: (x[0], datetime.strftime(x[1], "%B %d, %Y")), minutes_list))
+    print(converted_list)
+write_sorted_list() 

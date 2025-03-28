@@ -144,6 +144,15 @@ def create_minutes_list():
     return converted_list
 minutes_list  = create_minutes_list()
 
+# Task 15: Write Out Sorted List
+def write_sorted_list():
+    minutes_list.sort(key=lambda x:x[1])
+    converted_list = list(map(lambda x: (x[0], datetime.strftime(x[1], "%B %d, %Y")), minutes_list))
+    with open('./minutes.csv', 'w', newline='') as file:
+         writer = csv.writer(file)
+         writer.writerow(minutes1['fields'])
+         writer.writerows(converted_list)
+    return converted_list
 def handle_exception(e):
         trace_back = traceback.extract_tb(e.__traceback__)
         stack_trace = list()
