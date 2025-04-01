@@ -48,5 +48,18 @@ more_employees = pd.concat([task2_employees,json_employees], ignore_index=True)
 print("\n******More employees*****\n",more_employees)
 
 # Task 3: Data Inspection - Using Head, Tail, and Info Methods
+
+# Use the head() method:
 first_three = more_employees.head(3)
 print("\n******First three rows*****\n", first_three)
+
+# Use the tail() method:
+last_two = more_employees.tail(2)
+print("\n******Last two rows*****\n", last_two)
+
+# Get the shape of a DataFrame
+employee_shape = more_employees.shape
+print("\n******Shape of more_employee*****\n", employee_shape)
+
+# Use the info() method:
+print("\n******Info more_employee dataframe*****\n", more_employees.info)
