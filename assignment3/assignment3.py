@@ -26,5 +26,23 @@ print(task1_older)
 task1_older.to_csv("employees.csv", index=False)
 
 # Task 2: Loading Data from CSV and JSON
+
+# Read data from a CSV file:
 task2_employees = pd.read_csv('employees.csv')
 print(task2_employees)
+
+# Read data from a JSON file:
+json_data = {
+    'Name':['Eve', 'Frank'],
+    'Age':[28,40],
+    'City':['Miami','Seattle'],
+    'Salary':[60000,95000]
+}
+json_data_df = pd.DataFrame(json_data)
+json_data_df.to_json("additional_employees.json",index=False)
+json_employees = pd.read_json('additional_employees.json')
+print(json_employees)
+
+# Combine DataFrames:
+more_employees = pd.concat([task2_employees,json_employees], ignore_index=True)
+print(more_employees)
