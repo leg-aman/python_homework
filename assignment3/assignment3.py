@@ -29,7 +29,7 @@ task1_older.to_csv("employees.csv", index=False)
 
 # Read data from a CSV file:
 task2_employees = pd.read_csv('employees.csv')
-print(task2_employees)
+print("\n******Task2 employees [employee.csv]  *****\n",task2_employees)
 
 # Read data from a JSON file:
 json_data = {
@@ -41,8 +41,12 @@ json_data = {
 json_data_df = pd.DataFrame(json_data)
 json_data_df.to_json("additional_employees.json",index=False)
 json_employees = pd.read_json('additional_employees.json')
-print(json_employees)
+print("\n******json employees*****\n",json_employees)
 
 # Combine DataFrames:
 more_employees = pd.concat([task2_employees,json_employees], ignore_index=True)
-print(more_employees)
+print("\n******More employees*****\n",more_employees)
+
+# Task 3: Data Inspection - Using Head, Tail, and Info Methods
+first_three = more_employees.head(3)
+print("\n******First three rows*****\n", first_three)
