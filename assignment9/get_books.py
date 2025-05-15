@@ -43,3 +43,7 @@ finally:
 
 df = pd.DataFrame(results)
 print(df)
+# Save the DataFrame to a CSV file
+df.to_csv("books.csv", index=False)
+# Save the DataFrame to a JSON file
+df.to_json("books.json", orient="records", lines=True)
