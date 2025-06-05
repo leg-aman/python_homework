@@ -8,7 +8,7 @@ df = pldata.gapminder(return_type='pandas',  datetimes=True) # This loads one of
 # Initialize Dash app
 app = Dash(__name__) # This creates the app object, to wich various things are added below. 
 # __name__ is the name of the running Python module, which is your main module in this case
-
+server = app.server # This is the Flask server that Dash uses under the hood.  You can use it to add routes, etc. if you want to do more than just the Dash app.
 # Layout: This section creates the HTML components
 app.layout = html.Div([ # This div is for the dropdown you see at the top, and also for the graph itself
     dcc.Dropdown( # This creates the dropdown
