@@ -18,5 +18,3 @@ emp_res = load_employee_results()
 # bar chart of employee results
 emp_res.plot(x="last_name", y="revenue", color=['#8cc5e3', '#1a80bb'], kind="bar", title="Employee Revenue Results")
 plt.show()
-
-# Task 2: A Line Plot with Pandas
