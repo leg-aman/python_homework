@@ -1,0 +1,48 @@
+function: hello_world positional parameters: none keyword parameters: none return: None
+function: args_1 positional parameters: [75, 92, 'Jon Doe', 888] keyword parameters: none return: True
+function: kwargs_1 positional parameters: none keyword parameters: {'year': 'unknown', 'temp': 28, 'sky': 'clear'} return: <function logger_decorator at 0x000001C8839CDEE0>
+function: hello_world 
+ positional parameters: none  
+ keyword parameters: none  
+ return: None
+function: args_1 
+ positional parameters: [75, 92, 'Jon Doe', 888]  
+ keyword parameters: none  
+ return: True
+function: kwargs_1 
+ positional parameters: none  
+ keyword parameters: {'year': 'unknown', 'temp': 28, 'sky': 'clear'}  
+ return: <function logger_decorator at 0x000002080322DEE0>
+******** 
+ function: hello_world 
+ positional parameters: none  
+ keyword parameters: none  
+ return: None 
+ ********
+******** 
+ function: args_1 
+ positional parameters: [75, 92, 'Jon Doe', 888]  
+ keyword parameters: none  
+ return: True 
+ ********
+******** 
+ function: kwargs_1 
+ positional parameters: none  
+ keyword parameters: {'year': 'unknown', 'temp': 28, 'sky': 'clear'}  
+ return: <function logger_decorator at 0x0000018B2ABCDEE0> 
+ ********
+function: hello_world 
+ positional parameters: none  
+ keyword parameters: none  
+ return: None 
+ ********
+function: args_1 
+ positional parameters: [75, 92, 'Jon Doe', 888]  
+ keyword parameters: none  
+ return: True 
+ ********
+function: kwargs_1 
+ positional parameters: none  
+ keyword parameters: {'year': 'unknown', 'temp': 28, 'sky': 'clear'}  
+ return: <function logger_decorator at 0x0000023333B0DEE0> 
+ ********
