@@ -1,36 +1,30 @@
-# task5_extended_df.py
+
+# Task 5: Extending a Class
 
 import pandas as pd
 
-class FancyDataFrame(pd.DataFrame):
+class DFPlus(pd.DataFrame):
     @property
     def _constructor(self):
-        return FancyDataFrame
+        return DFPlus
 
     @classmethod
-    def load_csv(cls, path, **options):
-        base_df = pd.read_csv(path, **options)
-        return cls(base_df)
-
-    def show_rows_in_parts(self):
-        num_rows = len(self)
-        if num_rows == 0:
-            print("⚠️  Oops, this DataFrame is empty.")
+    def from_csv(cls, filepath, **kwargs):
+        df = pd.read_csv(filepath, **kwargs)
+        return cls(df)
+    
+    def print_with_headers(self):
+        all_rows = len(self)
+        if all_rows == 0:
+            print("⚠️ oops! DataFrame is empty.")
             return
-
-        rows_per_chunk = 5  # Changed from 10 to 5 for smaller batches
-        chunk_start = 0
-
-        while chunk_start < num_rows:
-            chunk_end = chunk_start + rows_per_chunk
-            if chunk_end > num_rows:
-                chunk_end = num_rows
-
-            print("\nShowing rows {} to {}:".format(chunk_start + 1, chunk_end))
-            print(self.iloc[chunk_start:chunk_end])
-            chunk_start += rows_per_chunk
+        
+        for row_beg in range(0, all_rows, 10):
+            row_last = min(row_beg +10, all_rows)
+            res = self.iloc[row_beg:row_last]
+            print(f"Rows {row_beg + 1} to {row_last}:")
+            print(res)
 
 
-# Example usage
-fdf = FancyDataFrame.load_csv("../csv/products.csv")
-fdf.show_rows_in_parts()
+dfp = DFPlus.from_csv("../csv/products.csv")
+dfp.print_with_headers()
