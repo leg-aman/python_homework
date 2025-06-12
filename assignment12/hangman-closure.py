@@ -1,5 +1,3 @@
-# hangman_closure.py
-
 def make_hangman(secret_word):
     guesses = []
 
