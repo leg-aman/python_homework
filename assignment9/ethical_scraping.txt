@@ -1,0 +1,19 @@
+1. Sections Restricted for Crawling: Commonly Disallowed Paths for all or most bots. These sections are typically blocked to reduce server load or avoid indexing non-content or sensitive pages:
+
+    /w/, /wiki/Special, /wiki/Talk, /wiki/User, /wiki/User_talk, /wiki/Wikipedia, /wiki/Wikipedia_talk /wiki/Help
+
+2. Specific Rules for Certain User Agents. These are outright blocked from crawling anything:
+
+AhrefsBot
+
+Baiduspider
+
+BLEXBot
+
+Bytespider
+
+CCBot
+
+DotBot
+
+3. Websites use a file called `robots.txt` to tell web robots which parts of the site they can and can’t visit. This helps protect private or sensitive pages and keeps the website from getting too many visits at once. Following these rules is part of ethical scraping because it shows respect for the website owner's wishes.
